@@ -4,3 +4,20 @@ export type ComponentMap = {
   name: string
   componentName: DefineComponent<{}, {}, any>
 }
+
+// phone登录表单数据类型
+export interface PhoneCodeRuleForm {
+  username: string
+  smscode: string
+  imgcode: string
+  saveUserName: boolean
+}
+
+// 账号登录表单数据类型
+export interface AccountCodeRuleForm {
+  username: string
+  password: string
+  imgcode: string
+  saveUserName: boolean
+  saveUserPass: boolean
+}

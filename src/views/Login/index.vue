@@ -1,15 +1,13 @@
 <script setup lang="ts">
 const bgColor = 'linear-gradient(0deg, #2196f3, #00bcd4, #00bcd4, #03a9f4)'
-const loginPanelWidth = '800px'
-const loginPanelHeight = '400px'
+const loginPanelWidth = '750px'
+const loginPanelHeight = '380px'
 
 import { ref } from 'vue'
 import type { ComponentMap } from './types/login-type'
 
-import PhoneCodeForm from './components/PhoneCodeForm.vue'
-import AccountForm from './components/AccountForm.vue'
-import QcodeForm from './components/QcodeForm.vue'
-
+// 统一导入组件
+import { PhoneCodeForm, AccountForm, QcodeForm } from './components/index'
 const tabList = ref<ComponentMap[]>([
   { name: '免密登录', componentName: PhoneCodeForm },
   { name: '账号登录', componentName: AccountForm },
@@ -49,6 +47,7 @@ const changeTab = (index: number) => {
           <component :is="tabList[currentTab].componentName"></component>
         </div>
       </div>
+      <div class="login-footer">版权所有: 通用管理系统</div>
     </div>
   </div>
 </template>
@@ -72,6 +71,7 @@ const changeTab = (index: number) => {
     margin-top: calc((100vh - v-bind(loginPanelHeight)) / 2);
     box-shadow: 0 0 10px 1px #00005556;
     display: flex;
+    border-radius: 5px;
 
     .login-logo-panel {
       width: 40%;
@@ -109,6 +109,9 @@ const changeTab = (index: number) => {
             color: red;
           }
         }
+      }
+      .tabs-content {
+        padding: 20px 40px 0;
       }
     }
   }
